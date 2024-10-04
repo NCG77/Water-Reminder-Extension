@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Luke Health Reminder",
+  "version": "1.0",
+  "description": "Reminds you to drink water and take breaks.",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Health Reminder"
+  },
+  "permissions": [
+    "alarms",
+    "storage",
+    "notifications",
+    "background"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

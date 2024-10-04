@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>W Health Reminder</title>
+</head>
+
+<body>
+    <h1>Health Reminder</h1>
+    <form id="reminderForm">
+        <label for="waterInput">Remind me every :</label>
+        <input type="number" id="waterInput" name="waterInput" min="1" placeholder="In Minutes" required>
+        <button type="submit">Set Reminder</button>
+        <button type="button" id="stopButton">Stop Reminder</button>
+    </form>
+
+    <div id="settings">
+        <h3>Settings</h3>
+        <label for="soundFile">Choose custom sound file:</label>
+        <input type="file" id="soundFile" accept="audio/*">
+
+        <label for="volumeSlider">Volume:</label>
+        <input type="range" id="volumeSlider" name="volume" min="0" max="100" value="50">
+    </div>
+
+    <div id="reminderMessages"></div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
