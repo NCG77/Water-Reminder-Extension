@@ -8,6 +8,11 @@ This Chrome extension reminds you to stay healthy by encouraging you to drink wa
 - Hydration and Break Tip: Motivational messages are displayed with reminders to encourage hydration, taking breaks from the screen, and going for walks.
 - Stop Button: Option to stop the reminder whenever needed.
 
+## Images:
+![Health Reminder Screenshot Main Screen](https://github.com/user-attachments/assets/80d28c9c-82cc-4f0f-bdda-1c617d2958c4)
+![Health Reminder Screenshot Popup screen](https://github.com/user-attachments/assets/1817f934-79c8-47bf-aa06-9428360d69ae)
+
+
 ## How It Works
 1. Set the Reminder:
     - Enter the interval (in minutes) in the input field to set how often you would like to be reminded to drink water.
