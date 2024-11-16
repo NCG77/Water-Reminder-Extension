@@ -10,7 +10,7 @@ This Chrome extension reminds you to stay healthy by encouraging you to drink wa
 - Popup and system notifications.
 
 ## Images:
-![Health Reminder Screenshot Main Screen](https://github.com/user-attachments/assets/80d28c9c-82cc-4f0f-bdda-1c617d2958c4)
+![Health Reminder Screenshot Main Screen](https://github.com/user-attachments/assets/c574ec2f-65da-4909-9e59-e251c35621b7)
 ![Health Reminder Screenshot Popup screen](https://github.com/user-attachments/assets/1817f934-79c8-47bf-aa06-9428360d69ae)
 
 
