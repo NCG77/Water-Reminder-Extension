@@ -1,73 +1,31 @@
-document.getElementById('reminderForm').addEventListener('submit', function (event) {
+document.getElementById('reminderForm').addEventListener('submit', (event) => {
     event.preventDefault();
     const waterTime = document.getElementById('waterInput').value;
     const reminderType = document.getElementById('reminderType').value;
 
-    if (waterTime > 0) {
-        chrome.runtime.sendMessage({
-            type: 'startReminder',
-            time: waterTime,
-            reminderType: reminderType,
-        });
-
-        document.getElementById('reminderMessages').innerText = `Reminder set for every ${waterTime} minutes using ${reminderType}.`;
-    } else {
-        document.getElementById('reminderMessages').innerText = 'Please enter a valid time.';
-    }
+    chrome.runtime.sendMessage({ type: 'startReminder', time: waterTime, reminderType }, (response) => {
+        document.getElementById('reminderMessages').innerText = `Reminder set for every ${waterTime} minutes.`;
+    });
 });
 
-document.getElementById('stopButton').addEventListener('click', function () {
-    chrome.runtime.sendMessage({ type: 'stopReminder' });
-    document.getElementById('reminderMessages').innerText = 'Reminder stopped.';
+document.getElementById('stopButton').addEventListener('click', () => {
+    chrome.runtime.sendMessage({ type: 'stopReminder' }, () => {
+        document.getElementById('reminderMessages').innerText = 'Reminder stopped.';
+    });
 });
 
-document.getElementById('soundFile').addEventListener('change', function (event) {
+document.getElementById('soundFile').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function (e) {
-            const audioData = e.target.result;
-            localStorage.setItem('customSound', audioData);
+        reader.onload = (e) => {
+            chrome.runtime.sendMessage({ type: 'saveCustomSound', data: e.target.result });
         };
         reader.readAsDataURL(file);
     }
 });
 
-document.getElementById('volumeSlider').addEventListener('input', function () {
-    const volume = this.value / 100;
-    localStorage.setItem('volume', volume);
-});
-
-const playReminderSound = () => {
-    const customSound = localStorage.getItem('customSound');
-    const soundFile = customSound || 'default_sound.mp3';
-    playSound(soundFile);
-};
-
-const playSound = (audioFile) => {
-    const audio = new Audio(audioFile);
-    const savedVolume = localStorage.getItem('volume') || 0.5;
-    audio.volume = savedVolume;
-    audio.play();
-};
-
-chrome.runtime.onMessage.addListener((message) => {
-    if (message.type === 'triggerReminder') {
-        if (message.reminderType === 'popup') {
-            chrome.windows.create({
-                url: 'reminder.html',
-                type: 'popup',
-                width: 300,
-                height: 200,
-            });
-        } else if (message.reminderType === 'notification') {
-            chrome.notifications.create('waterReminder', {
-                type: 'basic',
-                iconUrl: 'icon.png',
-                title: 'Time to drink water!',
-                message: 'Stay hydrated and take a break!',
-            });
-        }
-        playReminderSound();
-    }
+document.getElementById('volumeSlider').addEventListener('input', (event) => {
+    const volume = event.target.value / 100;
+    chrome.runtime.sendMessage({ type: 'setVolume', volume });
 });
