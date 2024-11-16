@@ -11,7 +11,7 @@
 <body>
     <h1>Health Reminder</h1>
     <form id="reminderForm">
-        <label for="waterInput">Remind me every :</label>
+        <label for="waterInput">Remind me every:</label>
         <input type="number" id="waterInput" name="waterInput" min="1" placeholder="In Minutes" required>
         <button type="submit">Set Reminder</button>
         <button type="button" id="stopButton">Stop Reminder</button>
@@ -24,6 +24,12 @@
 
         <label for="volumeSlider">Volume:</label>
         <input type="range" id="volumeSlider" name="volume" min="0" max="100" value="50">
+
+        <label for="reminderType">Reminder Type:</label>
+        <select id="reminderType">
+            <option value="popup">Pop-Out Window</option>
+            <option value="notification">System Notification</option>
+        </select>
     </div>
 
     <div id="reminderMessages"></div>
