@@ -7,6 +7,7 @@ This Chrome extension reminds you to stay healthy by encouraging you to drink wa
 - Volume Control: Adjust the volume of the reminder sound.
 - Hydration and Break Tip: Motivational messages are displayed with reminders to encourage hydration, taking breaks from the screen, and going for walks.
 - Stop Button: Option to stop the reminder whenever needed.
+- Popup and system notifications.
 
 ## Images:
 ![Health Reminder Screenshot Main Screen](https://github.com/user-attachments/assets/80d28c9c-82cc-4f0f-bdda-1c617d2958c4)
