@@ -16,6 +16,8 @@
     "service_worker": "background.js"
   },
   "icons": {
-    "48": "icon.png"
-  }
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "host_permissions": []
 }
